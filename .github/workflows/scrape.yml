@@ -15,7 +15,7 @@ jobs:
     - name: Fetch latest data
       run: |-
         timestamp=$(date '+%Y-%m-%d_%H:%M:%S')
-        curl 'https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?f=json&returnGeometry=true&outFields=*&where=1=1' | jq . > "data/wildfires_$timestamp_UTC.json"
+        curl 'https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?f=json&returnGeometry=true&outFields=*&where=1=1' | jq . > "data/wildfires_${timestamp}_UTC.json"
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
